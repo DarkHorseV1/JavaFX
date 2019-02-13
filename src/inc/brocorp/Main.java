@@ -17,9 +17,8 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("fxml/main.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("inc.brocorp.bundle.Locale", new Locale("en")));
         Parent fxmlMain = fxmlLoader.load();
-        //fxmlLoader.setResources(ResourceBundle.getBundle("inc.brocorp.bundle.Locale", new Locale("en")));
-
 
         MainController mainController = fxmlLoader.getController();
         mainController.setMainStage(primaryStage);

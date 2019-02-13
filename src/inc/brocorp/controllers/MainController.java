@@ -20,9 +20,10 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
     AddressBook addressBook = new AddressBook();
 
     private Stage mainStage;
@@ -38,7 +39,7 @@ public class MainController {
     private Button btnSearch;
 
     @FXML
-    private Button btnChange;
+    private Button btnEdit;
 
     @FXML
     private Button btnAdd;
@@ -64,9 +65,9 @@ public class MainController {
     private EditController editController;
     private ResourceBundle resourceBundle;
 
-    @FXML
-    public void initialize() {
-        //this.resourceBundle = resources;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        this.resourceBundle = resources;
 
         tableAddressBook.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         columnFio.setCellValueFactory(new PropertyValueFactory<Persons, String>("fio"));
@@ -76,6 +77,8 @@ public class MainController {
         initListeners();
         try {
             fxmlLoader.setLocation(getClass().getResource("../fxml/edit.fxml"));
+            fxmlLoader.setResources(ResourceBundle.getBundle("inc.brocorp.bundle.Locale", new Locale("ru")));
+
             fxmlEdit = fxmlLoader.load();
             editController = fxmlLoader.getController();
         }
@@ -96,7 +99,7 @@ public class MainController {
     }
 
     private void updateLabelCount(){
-        labelCount.setText("count: "+addressBook.getPersons().size());
+        labelCount.setText(resourceBundle.getString("count")+": "+addressBook.getPersons().size());
     }
 
     public void actionButtonPressed(ActionEvent actionEvent) {
@@ -106,7 +109,6 @@ public class MainController {
         }
         Button clickedButton = (Button) source;
         Persons selectedPerson = (Persons) tableAddressBook.getSelectionModel().getSelectedItem();
-        //Window parentWindow = ((Node) actionEvent.getSource()).getScene().getWindow();
         editController.setPerson(selectedPerson);
 
         switch(clickedButton.getId()){
@@ -120,7 +122,7 @@ public class MainController {
                 addressBook.delete((Persons)tableAddressBook.getSelectionModel().getSelectedItem());
                 break;
 
-            case "btnChange":
+            case "btnEdit":
                 showDialog();
                 break;
         }
@@ -128,7 +130,7 @@ public class MainController {
     private void showDialog(){
         if(editDialogStage == null){
             editDialogStage = new Stage();
-            editDialogStage.setTitle("edit");
+            editDialogStage.setTitle(resourceBundle.getString("edit"));
             editDialogStage.setMinHeight(150);
             editDialogStage.setMinWidth(300);
             editDialogStage.setResizable(false);

@@ -9,12 +9,12 @@
    <left>
       <VBox prefHeight="100.0" prefWidth="80.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="name">
+            <Label text="%name">
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
             </Label>
-            <Label text="phone">
+            <Label text="%phone">
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
@@ -41,12 +41,12 @@
    <right>
       <VBox minWidth="100.0" prefHeight="110.0" prefWidth="112.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnSave" defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionSave" prefWidth="75.0" text="save">
+            <Button fx:id="btnSave" defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionSave" prefWidth="75.0" text="%save">
                <VBox.margin>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnCancel" cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="75.0" text="cancel">
+            <Button fx:id="btnCancel" cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="75.0" text="%cancel">
                <VBox.margin>
                   <Insets left="15.0" />
                </VBox.margin>
