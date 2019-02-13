@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inc.brocorp.controllers.EditController">
+   <left>
+      <VBox prefHeight="100.0" prefWidth="80.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="name">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="phone">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox minWidth="196.0" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtFIO" minWidth="200.0" prefHeight="25.0" prefWidth="277.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txtPhone">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox minWidth="100.0" prefHeight="110.0" prefWidth="112.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnSave" defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionSave" prefWidth="75.0" text="save">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnCancel" cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="75.0" text="cancel">
+               <VBox.margin>
+                  <Insets left="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
