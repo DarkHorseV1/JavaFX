@@ -17,13 +17,13 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("fxml/main.fxml"));
-        fxmlLoader.setResources(ResourceBundle.getBundle("inc.brocorp.bundle.Locale", new Locale("en")));
+        fxmlLoader.setResources(ResourceBundle.getBundle("inc.brocorp.bundle.Locale", new Locale("ru")));
         Parent fxmlMain = fxmlLoader.load();
 
         MainController mainController = fxmlLoader.getController();
         mainController.setMainStage(primaryStage);
 
-        primaryStage.setTitle("phoneBook");
+        primaryStage.setTitle(fxmlLoader.getResources().getString("phoneBook"));
         primaryStage.setMinHeight(420);
         primaryStage.setMinWidth(340);
         primaryStage.setScene(new Scene(fxmlMain, 320, 380));

@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     AddressBook addressBook = new AddressBook();
 
+    boolean choice;
+
     private Stage mainStage;
 
     public void setMainStage(Stage mainStage) {
@@ -114,6 +116,7 @@ public class MainController implements Initializable {
         switch(clickedButton.getId()){
             case "btnAdd":
                 editController.setPerson(new Persons());
+                choice = true;
                 showDialog();
                 addressBook.add(editController.getPerson());
                 break;
@@ -123,6 +126,7 @@ public class MainController implements Initializable {
                 break;
 
             case "btnEdit":
+                choice = false;
                 showDialog();
                 break;
         }
@@ -130,13 +134,24 @@ public class MainController implements Initializable {
     private void showDialog(){
         if(editDialogStage == null){
             editDialogStage = new Stage();
-            editDialogStage.setTitle(resourceBundle.getString("edit"));
+            if(choice == false){
+                editDialogStage.setTitle(resourceBundle.getString("edit"));
+            }
+            else{
+                editDialogStage.setTitle(resourceBundle.getString("add"));
+            }
             editDialogStage.setMinHeight(150);
             editDialogStage.setMinWidth(300);
             editDialogStage.setResizable(false);
             editDialogStage.setScene(new Scene(fxmlEdit));
             editDialogStage.initModality(Modality.WINDOW_MODAL);
             editDialogStage.initOwner(mainStage);
+        }
+        if(choice == false){
+            editDialogStage.setTitle(resourceBundle.getString("edit"));
+        }
+        else{
+            editDialogStage.setTitle(resourceBundle.getString("add"));
         }
         editDialogStage.showAndWait();
     }
